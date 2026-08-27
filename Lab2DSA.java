@@ -100,9 +100,8 @@ public class Lab2DSA {
             array = new int [size];
         }
 
-        if (count > size){
+        if (count >= size){
             System.out.println("Array is already full! Press any key to continue...");
-            sc.nextLine();
             sc.nextLine();
             return array;
         }
