@@ -60,34 +60,22 @@ public class Lab2DSA {
                 choice = sc.nextInt();
                 break;
             case 3:
-                if (!populated){
-                    System.out.println("You must populate the array first! Press any key to continue...");
-                    sc.nextLine();
-                    sc.nextLine();
-                } else {
-                three(sc, array, count);
-                }
+                if (checkPopulated(sc, populated)){
+                    three(sc, array, count);
+                    }
                 menu ();
                 choice = sc.nextInt();
                 break;
             case 4:
-                if (!populated){
-                    System.out.println("You must populate the array first! Press any key to continue...");
-                    sc.nextLine();
-                    sc.nextLine();
-                } else {
-                four (sc, count, array);
+                if (checkPopulated(sc, populated)){
+                    four (sc, count, array);
                 }
                 menu ();
                 choice = sc.nextInt();
                 break;
             case 5:
-                if (!populated){
-                    System.out.println("You must populate the array first! Press any key to continue...");
-                    sc.nextLine();
-                    sc.nextLine();
-                } else {
-                five (sc, array);
+                if (checkPopulated(sc, populated)){
+                    five (sc, array);
                 }
                 menu ();
                 choice = sc.nextInt();
@@ -170,7 +158,7 @@ public class Lab2DSA {
             return array;
         }
 
-        System.out.println("Enter an element or enter -99 to exit: ");
+        System.out.print("Enter an element or enter -99 to exit: ");
         while(count <= size){
             while (!sc.hasNextInt()) {
                 System.out.println("Invalid input! Only integers are accepted.");
@@ -191,7 +179,7 @@ public class Lab2DSA {
                 }
             }
             if (duplicate){
-                System.out.println(element + " already exists! Enter another element or enter -99 to exit: ");
+                System.out.print(element + " already exists! Enter another element or enter -99 to exit: ");
             }else{
                 array[count] = element;
                 count++;
@@ -298,6 +286,15 @@ public class Lab2DSA {
         sc.nextLine();
     }
     
+    public static boolean checkPopulated (Scanner sc, boolean populated){
+        if (!populated){
+                    System.out.println("You must populate the array first! Press any key to continue...");
+                    sc.nextLine();
+                    sc.nextLine();
+            }
+        return populated;
+    }
+
     static void zero() {
         System.out.println("Program terminated. Goodbye!");
     }
