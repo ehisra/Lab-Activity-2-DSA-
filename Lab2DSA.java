@@ -175,7 +175,7 @@ public class Lab2DSA {
             }
 
             boolean duplicate = false;
-            for (int i = 0; i <= count; i++){
+            for (int i = 0; i < count; i++){
                 if (array[i] == element){
                     duplicate = true;
                 }
@@ -259,7 +259,7 @@ public class Lab2DSA {
 
         if (count == 0) {
             System.out.println("Array is empty! Nothing to delete.");
-            System.out.print("Press Any Key to continue");
+            System.out.print("Press Any Key to continue...");
             sc.nextLine();
             sc.nextLine();
             return;
