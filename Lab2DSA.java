@@ -264,6 +264,13 @@ public class Lab2DSA {
             sc.nextLine();
             return;
         }
+
+        System.out.println("\nCurrent Array:");
+        for (int i = 0; i < count; i++) {
+            System.out.printf("%7d", array[i]);
+        }
+        System.out.println();
+
         System.out.print("Enter an integer to delete: ");
         while (!sc.hasNextInt()) {
             System.out.println("Invalid input! Only integers are accepted.");
@@ -289,6 +296,11 @@ public class Lab2DSA {
             count --;
             System.out.println(target + " was deleted");
         }
+        System.out.println("\nUpdated Array:");
+        for (int i = 0; i < count; i++) {
+            System.out.printf("%7d", array[i]);
+        }
+        System.out.println();
         System.out.print("Press Any Key to continue...");
         sc.nextLine();
         sc.nextLine();
