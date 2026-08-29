@@ -6,9 +6,14 @@ public class Lab2DSA {
         Scanner sc = new Scanner(System.in);
         int size = 0;
         int array [] = null;
+        boolean created = false;
+        
+        options(sc, array, size, created);
+    }
+    
+    public static void options(Scanner sc,int[] array, int size, boolean created) {
         int choice;
-        boolean created = false, populated = false;
-
+        
         do{
             menu ();
 
@@ -32,15 +37,8 @@ public class Lab2DSA {
             } 
 
         } while (choice != 1);
-
+        
         do{
-            while (!sc.hasNextInt()){
-                System.out.println("Integers 0-5 are only accepted! Press any key to continue...");
-                sc.nextLine();
-                sc.nextLine();
-                menu ();
-            }
-            
             switch (choice){
             case 1:
                 if (created){
@@ -49,6 +47,7 @@ public class Lab2DSA {
                     sc.nextLine();
                 }else{
                     size = one(sc);
+                    array = new int[size];
                     created = true;
                 }
                 menu (); 
@@ -62,26 +61,31 @@ public class Lab2DSA {
                 break;
             case 2:
                 array = two(sc, array, size);
-                populated = true;
                 menu ();
                 choice = sc.nextInt();
                 break;
             case 3:
-                if (checkPopulated(sc, populated)){
-                    three(sc, array, count);
-                    }
+                if (count == 0){
+                    System.out.println("You must populate the array first!");
+                } else {
+                    three (sc, array, count);
+                }
                 menu ();
                 choice = sc.nextInt();
                 break;
             case 4:
-                if (checkPopulated(sc, populated)){
+                if (count == 0){
+                    System.out.println("You must populate the array first!");
+                } else {
                     four (sc, count, array);
                 }
                 menu ();
                 choice = sc.nextInt();
                 break;
             case 5:
-                if (checkPopulated(sc, populated)){
+                if (count == 0){
+                    System.out.println("You must populate the array first!");
+                } else {
                     five (sc, array);
                 }
                 menu ();
@@ -105,7 +109,7 @@ public class Lab2DSA {
             
          } while (choice !=0);
     }
-
+    
     public static void menu (){
         header("Array Options", 50);
         header("Menu", 50);
@@ -117,7 +121,6 @@ public class Lab2DSA {
         System.out.println("[0] Stop");
         System.out.println(" ");
         System.out.print("Enter Choice: ");
-
     }
 
     public static int one (Scanner sc){
@@ -166,10 +169,11 @@ public class Lab2DSA {
             sc.nextLine();
             return array;
         }
-
+        
         System.out.println("Available Slots: " + (size - count));
         System.out.print("Enter an element or enter -99 to exit: ");
-        while(count <= size){
+        
+        while(count < size){            
             while (!sc.hasNextInt()) {
                 System.out.println("Invalid input! Only integers are accepted.");
                 System.out.print("Enter an element or enter -99 to exit: ");
@@ -183,9 +187,10 @@ public class Lab2DSA {
             }
 
             boolean duplicate = false;
-            for (int i = 0; i <= count; i++){
+            for (int i = 0; i < count; i++){
                 if (array[i] == element){
                     duplicate = true;
+                    break;
                 }
             }
             if (duplicate){
@@ -193,7 +198,6 @@ public class Lab2DSA {
             }else{
                 array[count] = element;
                 count++;
-
                 if (count >= size){
                     System.out.println("Array is now full! Press any key to continue...");
                     sc.nextLine();
@@ -272,6 +276,13 @@ public class Lab2DSA {
             sc.nextLine();
             return;
         }
+
+        System.out.println("\nCurrent Array:");
+        for (int i = 0; i < count; i++) {
+            System.out.printf("%7d", array[i]);
+        }
+        System.out.println();
+
         System.out.print("Enter an integer to delete: ");
         while (!sc.hasNextInt()) {
             System.out.println("Invalid input! Only integers are accepted.");
@@ -297,18 +308,14 @@ public class Lab2DSA {
             count --;
             System.out.println(target + " was deleted");
         }
+        System.out.println("\nUpdated Array:");
+        for (int i = 0; i < count; i++) {
+            System.out.printf("%7d", array[i]);
+        }
+        System.out.println();
         System.out.print("Press Any Key to continue...");
         sc.nextLine();
         sc.nextLine();
-    }
-    
-    public static boolean checkPopulated (Scanner sc, boolean populated){
-        if (!populated){
-                    System.out.println("You must populate the array first! Press any key to continue...");
-                    sc.nextLine();
-                    sc.nextLine();
-            }
-        return populated;
     }
 
     public static String center(String text, int width) {
