@@ -34,6 +34,13 @@ public class Lab2DSA {
         } while (choice != 1);
 
         do{
+            while (!sc.hasNextInt()){
+                System.out.println("Integers 0-5 are only accepted! Press any key to continue...");
+                sc.nextLine();
+                sc.nextLine();
+                menu ();
+            }
+            
             switch (choice){
             case 1:
                 if (created){
@@ -100,10 +107,8 @@ public class Lab2DSA {
     }
 
     public static void menu (){
-        System.out.println("------------------");
-        System.out.println("Array Operations");
-        System.out.println("      Menu      ");
-        System.out.println(" ");
+        header("Array Options", 50);
+        header("Menu", 50);
         System.out.println("[1] Create Array");
         System.out.println("[2] Insert Elements");
         System.out.println("[3] Search");
@@ -117,6 +122,8 @@ public class Lab2DSA {
 
     public static int one (Scanner sc){
         int size;
+        header("Create an Array", 50);
+
         System.out.print("Enter your desired array size. Please pick from 5 - 20: ");
         
         while (!sc.hasNextInt()){
@@ -147,6 +154,8 @@ public class Lab2DSA {
     }
 
     public static int[] two (Scanner sc, int[] array, int size){
+        header("Insert Elements", 50);
+
         if (array == null){
             array = new int [size];
         }
@@ -158,6 +167,7 @@ public class Lab2DSA {
             return array;
         }
 
+        System.out.println("Available Slots: " + (size - count));
         System.out.print("Enter an element or enter -99 to exit: ");
         while(count <= size){
             while (!sc.hasNextInt()) {
@@ -196,6 +206,8 @@ public class Lab2DSA {
     }
 
     static void three (Scanner sc, int array[], int count) {
+        header("Search", 50);
+
         System.out.print ("Enter an integer to search: ");
         boolean found = false;
         
@@ -227,6 +239,8 @@ public class Lab2DSA {
     }
 
     static void four (Scanner sc, int count, int[] array) {
+        header("Display", 50);
+
         System.out.println("Elements of the Array: ");
         System.out.println();
         if (count == 0) {
@@ -249,6 +263,8 @@ public class Lab2DSA {
     }
     
     static void five (Scanner sc, int[] array) {
+        header("Delete", 50);
+
         if (count == 0) {
             System.out.println("Array is empty! Nothing to delete.");
             System.out.print("Press Any Key to continue");
@@ -293,6 +309,22 @@ public class Lab2DSA {
                     sc.nextLine();
             }
         return populated;
+    }
+
+    public static String center(String text, int width) {
+        if (text == null || width <= text.length()) 
+        return text;
+        int padding = (width - text.length()) / 2;
+        return String.format("%" + padding + "s%s%" + (width - text.length() - padding) + "s", "", text, "");
+    }
+
+    public static void header (String text, int width) {
+        String line = String.format("%50s", "").replace(' ', '-');
+        String header = center(text, width);
+        
+        System.out.println(line);
+        System.out.println(header);
+        System.out.println(line);
     }
 
     static void zero() {
