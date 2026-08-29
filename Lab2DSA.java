@@ -34,13 +34,6 @@ public class Lab2DSA {
         } while (choice != 1);
 
         do{
-            while (!sc.hasNextInt()){
-                System.out.println("Integers 0-5 are only accepted! Press any key to continue...");
-                sc.nextLine();
-                sc.nextLine();
-                menu ();
-            }
-            
             switch (choice){
             case 1:
                 if (created){
@@ -117,7 +110,6 @@ public class Lab2DSA {
         System.out.println("[0] Stop");
         System.out.println(" ");
         System.out.print("Enter Choice: ");
-
     }
 
     public static int one (Scanner sc){
