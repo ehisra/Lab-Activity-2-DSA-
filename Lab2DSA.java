@@ -66,7 +66,7 @@ public class Lab2DSA {
                 break;
             case 3:
                 if (count == 0){
-                    System.out.println("You must populate the array first!");
+                    System.out.println("You must populate the array first! Press any key to continue...");
                 } else {
                     three (sc, array, count);
                 }
@@ -75,7 +75,7 @@ public class Lab2DSA {
                 break;
             case 4:
                 if (count == 0){
-                    System.out.println("You must populate the array first!");
+                    System.out.println("You must populate the array first! Press any key to continue...");
                 } else {
                     four (sc, count, array);
                 }
@@ -84,7 +84,7 @@ public class Lab2DSA {
                 break;
             case 5:
                 if (count == 0){
-                    System.out.println("You must populate the array first!");
+                    System.out.println("You must populate the array first! Press any key to continue...");
                 } else {
                     five (sc, array);
                 }
