@@ -260,7 +260,6 @@ public class Lab2DSA {
             }
         }
         System.out.println();
-        //System.out.println();
         System.out.print("Press Any Key to Continue..."); 
         sc.nextLine();
         sc.nextLine();
