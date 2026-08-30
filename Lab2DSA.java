@@ -66,7 +66,7 @@ public class Lab2DSA {
                 break;
             case 3:
                 if (count == 0){
-                    System.out.println("You must populate the array first!");
+                    System.out.println("You must populate the array first! Press any key to continue...");
                 } else {
                     three (sc, array, count);
                 }
@@ -75,7 +75,7 @@ public class Lab2DSA {
                 break;
             case 4:
                 if (count == 0){
-                    System.out.println("You must populate the array first!");
+                    System.out.println("You must populate the array first! Press any key to continue...");
                 } else {
                     four (sc, count, array);
                 }
@@ -84,7 +84,7 @@ public class Lab2DSA {
                 break;
             case 5:
                 if (count == 0){
-                    System.out.println("You must populate the array first!");
+                    System.out.println("You must populate the array first! Press any key to continue...");
                 } else {
                     five (sc, array);
                 }
@@ -271,17 +271,19 @@ public class Lab2DSA {
 
         if (count == 0) {
             System.out.println("Array is empty! Nothing to delete.");
-            System.out.print("Press Any Key to continue");
+            System.out.print("Press Any Key to continue...");
             sc.nextLine();
             sc.nextLine();
             return;
         }
 
         System.out.println("\nCurrent Array:");
-        for (int i = 0; i < count; i++) {
-            System.out.printf("%7d", array[i]);
+        for (int i = 0; i < count; i+=5) {
+            for (int j = 0; j < 5 && i + j < count; j++) {
+            System.out.printf("%7d", array[i + j]);
+                }
+            System.out.println();
         }
-        System.out.println();
 
         System.out.print("Enter an integer to delete: ");
         while (!sc.hasNextInt()) {
@@ -309,9 +311,13 @@ public class Lab2DSA {
             System.out.println(target + " was deleted");
         }
         System.out.println("\nUpdated Array:");
-        for (int i = 0; i < count; i++) {
-            System.out.printf("%7d", array[i]);
+        for (int i = 0; i < count; i+=5) {
+            for (int j = 0; j < 5 && i + j < count; j++) {
+            System.out.printf("%7d", array[i + j]);
+                }
+            System.out.println();
         }
+
         System.out.println();
         System.out.print("Press Any Key to continue...");
         sc.nextLine();
